@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess - Home</title>
+    <style>
+        /* (Keep all the CSS you provided in your navigation bar code here) */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #ffffff; transition: margin-left 0.4s; }
+        .menu-trigger { position: fixed; top: 20px; left: 20px; z-index: 1000; background: #222; color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; }
+        .bar { width: 25px; height: 3px; background: white; transition: 0.3s; }
+        .menu-box { position: fixed; top: 0; left: -300px; width: 300px; height: 100%; background: #1a1a1a; color: white; transition: 0.4s; z-index: 999; padding-top: 80px; box-shadow: 2px 0 10px rgba(0,0,0,0.3); }
+        .menu-box.open { left: 0; }
+        .menu-box ul { list-style: none; }
+        .menu-box ul li a { display: block; padding: 20px 30px; color: #ffffff; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid #0a5f49; transition: 0.3s; }
+        .menu-box ul li a:hover { background: #00750e8b; padding-left: 40px; }
+        /* This keeps your chess content centered and clear of the menu button */
+        .content { padding: 100px 50px; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+        img, video { max-width: 100%; height: auto; margin-top: 10px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <button class="menu-trigger" id="btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <nav class="menu-box" id="menu">
+        <ul>
+             <li><a href="OGHome.html">Home</a></li>
+             <li><a href="Rules.html">Rules</a></li>
+             <li><a href="Openings.html">Openings</a></li>
+             <li><a href="OurClub.html">Our Club</a></li>
+             <li><a href="Store.html">Store</a></li>
+        </ul>
+    </nav>
+    <div class="content"></div>
+    <body>
+        <h1> Home </h1>
+        
+        <h3> More than a game a battle of wits that has not changed in centuries.</h3>
+        <p> Born in <em>the 6th-century</em> in India as Chaturanga, chess began as a literal war map. It traveled through Persian palaces and Silk Road trade 
+            routes before landing in Europe. What started as a training tool for generals became the ultimate test of human logic.</p>
+        
+        <h3> Why You Should Care ?</h3>  
+        <h4> 1/ Infinite Variety</h4> 
+        
+        <blockquote>  "Chess is the gymnasium of the mind."
+            <p> -Blaise Pascal</p>
+            </blockquote>
+
+        <p> Whether you are a grandmaster or a first-timer, every game starts with the same 20 opening moves, but ends in a story that has never 
+            been told before since there are more possible chess games than there are atoms in the observable universe.You will never play the 
+            same game twice.</p>
+
+        <h4> 2/ Mental Gym</h4>
+        <p> Studies show that playing chess can physically alter your brain structure, improving memory and creative problem-solving. </p>
+        
+        <h3> Nowadays </h3>
+        <p> The chess game is actually very present in our modern day pop culture and had become very accessible and is very affordable for most 
+            people</p>
+        <p> You can see the game being featured in:</p>
+        
+        <h4> Series and Film </h4>  
+        <p> The Queen's gambit on Netflix.</p>
+        <img src="images/Netflix.jpg" alt="One of Netflix most viewed series of 2020">
+    
+        <h4> Ad Campaigns </h4>
+            <p> Cristiano Ronaldo and Lionel Messi were featured playing a chess game for a Louis Vuitton campain</p>
+            <img src="images/LV.jpg" alt="Messi and Ronaldo playing Chess">
+       
+        <h4> Video Game</h4>   
+            <p> <em>The International Chess Federation</em> have their own video game avalaible on IOS, Android and any Websites</p>
+            <video controls autoplay muted loop src ="images/video.mp4" width="400">
+            </video>    
+
+        <h4> Cities Park</h4>
+        <p> Some of the world's biggest cities have facilities to play chess</p>    
+        <img src="images/paris.jpeg" alt="Chess facilities in New York Central Park">
+
+        <p> So what are you waiting in for before getting into this game </p>
+    </body>
+    </div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const menu = document.getElementById('menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            btn.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+ <!DOCTYPE html>>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            transition: margin-left 0.4s;
+        }
+
+        /* The Button - */
+        .menu-trigger {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: #222;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        /* The Hidden Menu Box */
+        .menu-box {
+            position: fixed;
+            top: 0;
+            left: -300px; /* Fully hidden off-screen */
+            width: 300px;
+            height: 100%;
+            background: #1a1a1a;
+            color: white;
+            transition: 0.4s;
+            z-index: 999;
+            padding-top: 80px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        /* When Menu is Open */
+        .menu-box.open {
+            left: 0;
+        }
+
+        /* Animation for the Button when open */
+        .menu-trigger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .menu-trigger.active .bar:nth-child(2) { opacity: 0; }
+        .menu-trigger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* Menu Content */
+        .menu-box ul {
+            list-style: none;
+        }
+
+        .menu-box ul li a {
+            display: block;
+            padding: 20px 30px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #0a5f49;
+            transition: 0.3s;
+        }
+
+        .menu-box ul li a:hover {
+            background: #00750e8b;
+            color: rgb(255, 255, 255);
+            padding-left: 40px;
+        }
+
+        .content {
+            padding: 100px 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="menu-trigger" id="btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <nav class="menu-box" id="menu">
+        <ul>
+             <li><a href="#">Home</a></li>
+              <li><a href="#">Pieces</a></li>
+            <li><a href="#">Rules</a></li>
+            <li><a href="#">Openings</a></li>
+            <li><a href="#">Our Club</a></li>
+            <li><a href="#">Store</a></li>
+        </ul>
+    </nav>
+    <script>
+        const btn = document.getElementById('btn');
+        const menu = document.getElementById('menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            btn.classList.toggle('active');
+        });
+
+        // Close menu if clicking outside of it
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('open');
+                btn.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
